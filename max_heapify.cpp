@@ -1,4 +1,3 @@
-//پیاده سازی و اجرای روال max_heapify
 #include <iostream>
 #include <conio.h>
 using namespace std;
