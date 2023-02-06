@@ -4,7 +4,7 @@ using namespace std;
 
 class Graph
 {
-	int V;    // تعداد راس ها
+	int V;    // 
 	list<int> *adj;    // اشاره گر به یک آرایه شامل لیست مجاورت
 	void DFSUtil(int v, bool visited[]);  // یک تابع استفاده شده توسط پیمایش اول عمق
 public:
