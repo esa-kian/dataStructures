@@ -39,7 +39,7 @@ void Graph::DFSUtil(int v, bool visited[])
 
 void Graph::DFS()
 {
-	// علامت گذاری همه به رئوس به عنوان بازدید نکرده
+
 	bool *visited = new bool[V];
 	for (int i = 0; i < V; i++)
 		visited[i] = false;
