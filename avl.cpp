@@ -1,7 +1,4 @@
-/*
-پیاده سازی و اجرای درخت AVL
 
-*/
 #include<iostream>
 #include<cstdio>
 #include<sstream>
@@ -9,9 +6,7 @@
 #define pow2(n) (1 << (n))
 using namespace std;
 
-/*
-اعلان کلاس گره
-*/
+
 struct avl_node
 {
 	int data;
@@ -19,9 +14,7 @@ struct avl_node
 	struct avl_node *right;
 }*root;
 
-/*
-اعلان کلاس درخت avl
-*/
+
 class avlTree
 {
 public:
@@ -52,22 +45,22 @@ int main()
 		cout << "\n---------------------" << endl;
 		cout << "AVL Tree Implementation" << endl;
 		cout << "\n---------------------" << endl;
-		cout << "1.Afzoodane onsor be derakht " << endl;//قرار دادن عنصر به درخت
-		cout << "2.Namayesh motavazene derakht" << endl;//نمایش متوازن درخت
-		cout << "3.Peymayesh InOrder " << endl;//پیمایش میان ترتیب
-		cout << "4. Peymayesh PreOrder " << endl;//پیمایش پس ترتیب
-		cout << "5. Peymayesh PostOrder " << endl;//پیمایش پیش ترتیب
-		cout << "6.Khorooj" << endl;//خروج
+		cout << "1.Afzoodane onsor be derakht " << endl;//
+		cout << "2.Namayesh motavazene derakht" << endl;//
+		cout << "3.Peymayesh InOrder " << endl;//
+		cout << "4. Peymayesh PreOrder " << endl;//
+		cout << "5. Peymayesh PostOrder " << endl;//
+		cout << "6.Khorooj" << endl;//
 		cout << "Gozine morede nazar ra vared konid: ";
-		cin >> choice;//وارد کردن گزینه مورد نظر
+		cin >> choice;//
 		switch (choice)
 		{
 		case 1:
-			cout << "Onsore mored nazar ra vared konid: ";//اضافه کردن عنصر با انتخاب گزینه اول
+			cout << "Onsore mored nazar ra vared konid: ";//
 			cin >> item;
 			root = avl.insert(root, item);
 			break;
-		case 2://نمایش درخت با وارد کردن گزینه دوم
+		case 2://
 			if (root == NULL)
 			{
 				cout << "Derakht khali ast" << endl;
@@ -76,34 +69,32 @@ int main()
 			cout << "Derakhte motavazen shode:" << endl;
 			avl.display(root, 1);
 			break;
-		case 3://پیمایش میان ترتیب با انتخاب گزینه سوم
+		case 3://
 			cout << " Peymayesh Inorder:" << endl;
 			avl.inorder(root);
 			cout << endl;
 			break;
-		case 4:// پیمایش پس ترتیب با انتخاب گزینه چهارم
+		case 4:// 
 			cout << " Peymayesh Preorder:" << endl;
 			avl.preorder(root);
 			cout << endl;
 			break;
-		case 5:// پیمایش پیش ترتیب با انتخاب گزینه پنجم
+		case 5:// 
 			cout << " Peymayesh Postorder:" << endl;
 			avl.postorder(root);
 			cout << endl;
 			break;
-		case 6://خروج با گزینه ششم
+		case 6://
 			exit(1);
 			break;
-		default://انتخاب گزینه غیر مجاز
+		default://
 			cout << "Gozine vared shode eshtebah ast!" << endl;
 		}
 	}
 	return 0;
 }
 
-/*
-پیاده سازی متد ارتفاع درخت
-*/
+
 int avlTree::height(avl_node *temp)
 {
 	int h = 0;
@@ -117,9 +108,7 @@ int avlTree::height(avl_node *temp)
 	return h;
 }
 
-/*
-پیاده سازی متد اختلاف ارتفاع زیر دخت چپ ریشه با زیر درخت راست ریشه
-*/
+
 int avlTree::diff(avl_node *temp)
 {
 	int l_height = height(temp->left);
@@ -128,9 +117,7 @@ int avlTree::diff(avl_node *temp)
 	return e;
 }
 
-/*
-پیاده سازی متد چرخش راست راست
-*/
+
 avl_node *avlTree::rr_rotation(avl_node *parent)
 {
 	avl_node *temp;
@@ -139,9 +126,7 @@ avl_node *avlTree::rr_rotation(avl_node *parent)
 	temp->left = parent;
 	return temp;
 }
-/*
-پیاده سازی متد چرخش چپ چپ
-*/
+
 avl_node *avlTree::ll_rotation(avl_node *parent)
 {
 	avl_node *e;
@@ -151,9 +136,7 @@ avl_node *avlTree::ll_rotation(avl_node *parent)
 	return e;
 }
 
-/*
-پیاده سازی متد چرخش چپ راست
-*/
+
 avl_node *avlTree::lr_rotation(avl_node *parent)
 {
 	avl_node *e;
@@ -162,9 +145,7 @@ avl_node *avlTree::lr_rotation(avl_node *parent)
 	return ll_rotation(parent);
 }
 
-/*
-پیاده سازی متد چرخش راست چپ
-*/
+
 avl_node *avlTree::rl_rotation(avl_node *parent)
 {
 	avl_node *e;
@@ -173,9 +154,7 @@ avl_node *avlTree::rl_rotation(avl_node *parent)
 	return rr_rotation(parent);
 }
 
-/*
-پیاده سازی متد متعادل کردن درخت
-*/
+
 avl_node *avlTree::balance(avl_node *temp)
 {
 	int bal_factor = diff(temp);
@@ -196,12 +175,8 @@ avl_node *avlTree::balance(avl_node *temp)
 	return temp;
 }
 
-/*
 
-پیاده سازی متد درج در درخت:
-ابتدا بررسی میشود که نود جدید در سمت چپ ریشه درج شود و یا راست و این کار به صورت بازگشتی تکرار میشود تا مکان مناسب جدید پیدا شودو نود جدید در آنجا درج میشود .
-سپس آنها را چک میکنیم که چه چرخشی باید انجام شود
-*/
+
 avl_node *avlTree::insert(avl_node *root, int value)
 {
 	if (root == NULL)
@@ -225,9 +200,8 @@ avl_node *avlTree::insert(avl_node *root, int value)
 	return root;
 }
 
-/*
-پیاده سازی متد نمایش درخت
-*/
+
+
 void avlTree::display(avl_node *ptr, int level)
 {
 	int i;
@@ -244,9 +218,8 @@ void avlTree::display(avl_node *ptr, int level)
 	}
 }
 
-/*
-پیاده سازی متد پیمایش میان ترتیب درخت
-*/
+
+
 void avlTree::inorder(avl_node *tree)
 {
 	if (tree == NULL)
@@ -255,8 +228,8 @@ void avlTree::inorder(avl_node *tree)
 	cout << tree->data << "  ";
 	inorder(tree->right);
 }
-/*
-پیاده سازی متد پیمایش پس ترتیب درخت */
+
+
 void avlTree::preorder(avl_node *tree)
 {
 	if (tree == NULL)
@@ -267,8 +240,7 @@ void avlTree::preorder(avl_node *tree)
 
 }
 
-/*
-پیاده سازی متد پیمایش پیش ترتیب درخت */
+
 void avlTree::postorder(avl_node *tree)
 {
 	if (tree == NULL)
@@ -277,4 +249,3 @@ void avlTree::postorder(avl_node *tree)
 	postorder(tree->right);
 	cout << tree->data << "  ";
 }
-ترتیب اعداد وارد شده: ۵ ۴ ۳ ۲ ۱ ۹ ۸// 
