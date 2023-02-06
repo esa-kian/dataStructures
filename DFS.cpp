@@ -26,7 +26,7 @@ void Graph::addEdge(int v, int w)
 
 void Graph::DFSUtil(int v, bool visited[])
 {
-	// علامت گذاری گره فعلی به عنوان بازدید کرده و چاپ آن
+	// 
 	visited[v] = true;
 	cout << v << " ";
 
