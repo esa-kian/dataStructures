@@ -30,7 +30,7 @@ void Graph::DFSUtil(int v, bool visited[])
 	visited[v] = true;
 	cout << v << " ";
 
-	// تکرار برای همه رئوس مجاور به این راس
+	// 
 	list<int>::iterator i;
 	for (i = adj[v].begin(); i != adj[v].end(); ++i)
 	if (!visited[*i])
