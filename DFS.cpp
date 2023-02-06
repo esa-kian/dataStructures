@@ -9,7 +9,7 @@ class Graph
 	void DFSUtil(int v, bool visited[]);  // 
 public:
 	Graph(int V);   // 
-	void addEdge(int v, int w);   // تابعی برای افزودن یال به گراف
+	void addEdge(int v, int w);   // 
 	void DFS();    // چاپ گراف پیمایش اول عمق شده ی کامل
 };
 
