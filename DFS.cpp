@@ -5,7 +5,7 @@ using namespace std;
 class Graph
 {
 	int V;    // 
-	list<int> *adj;    // اشاره گر به یک آرایه شامل لیست مجاورت
+	list<int> *adj;    // 
 	void DFSUtil(int v, bool visited[]);  // یک تابع استفاده شده توسط پیمایش اول عمق
 public:
 	Graph(int V);   // سازنده
