@@ -10,7 +10,7 @@ class Graph
 public:
 	Graph(int V);   // 
 	void addEdge(int v, int w);   // 
-	void DFS();    // چاپ گراف پیمایش اول عمق شده ی کامل
+	void DFS();    // 
 };
 
 Graph::Graph(int V)
