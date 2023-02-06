@@ -1,4 +1,3 @@
-//اجرای پیمایش اول عمق گراف
 #include<iostream>
 #include <list>
 using namespace std;
