@@ -6,7 +6,7 @@ class Graph
 {
 	int V;    // 
 	list<int> *adj;    // 
-	void DFSUtil(int v, bool visited[]);  // یک تابع استفاده شده توسط پیمایش اول عمق
+	void DFSUtil(int v, bool visited[]);  // 
 public:
 	Graph(int V);   // سازنده
 	void addEdge(int v, int w);   // تابعی برای افزودن یال به گراف
