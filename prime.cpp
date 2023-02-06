@@ -1,17 +1,13 @@
-//اجرای الگوریتم پرایم
 #include <stdio.h>
 #include <limits.h>
 #include <iostream>
 using namespace std;
 
-// تعداد راس ها در گراف
 #define V 5
 
-// یک تابع کاربردی برای پیدا کردن کمترین مقدار راس ها
 
 int minKey(int key[], bool mstSet[])
 {
-	// مقداردهی اولیه مقدار حداقل
 	int min = INT_MAX, min_index;
 
 	for (int v = 0; v < V; v++)
@@ -21,7 +17,6 @@ int minKey(int key[], bool mstSet[])
 	return min_index;
 }
 
-// تابعی کاربردی برای چاپ MST ساخته شده ذخیره شده در parent[]
 void printMST(int parent[], int n, int graph[V][V])
 {
 	printf("Edge   Weight\n");
@@ -29,34 +24,26 @@ void printMST(int parent[], int n, int graph[V][V])
 		printf("%d - %d    %d \n", parent[i], i, graph[i][parent[i]]);
 }
 
-//تابعی برای ساخت و چاپ MST برای یک گراف نشان داده شده با استفاده از نمایش ماتریس مجارت
 
 void primMST(int graph[V][V])
 {
-	int parent[V]; // آرایه ای برای ذخیره سازی MSTساخته شده 
-	int key[V];   // مقادیر کلید برای انتخاب سبکترین یال در کاهش استفاده میشود
-	bool mstSet[V];  // برای نشان دادن مجموعه ای از رئوس که هنوز در MST گنجانده نشده
+	int parent[V];
+	int key[V];   
+	bool mstSet[V];
 
-	// مقداردهی تمام کلید ها به عنوان یک مقدار خیلی بزرگ
 	for (int i = 0; i < V; i++)
 		key[i] = INT_MAX, mstSet[i] = false;
 
-	key[0] = 0;     // ساخت این کلید باعث میشود این راس به عنوان اولین راس برداشته شود
-	parent[0] = -1; // اولین گره همیشه ریشه است
-//MST به تعداد V  خواهد شد 
+	key[0] = 0;  
+	parent[0] = -1; 
+
 	for (int count = 0; count < V - 1; count++)
 	{
-		// حداقل راس کلیدی از مجموعه ای از رئوس را انتخاب کنید
-		// هنوز در MST گنجانده نشده
 		int u = minKey(key, mstSet);
 
-		// افزودن راس انتخاب شده به مجموعه MST
 		mstSet[u] = true;
 
-		/* به روز رسانی مقدار های کلیدی
-		و شاخص والد رئوس را مجاور از رأس برداشت.
-		تنها کسانی که رئوس را که هنوز در MST گنجانده نشده در نظر بگیرید
-		*/
+		
 		for (int v = 0; v < V; v++)
 
 			// graph[u][v] is non zero only for adjacent vertices of m
@@ -66,14 +53,13 @@ void primMST(int graph[V][V])
 			parent[v] = u, key[v] = graph[u][v];
 	}
 
-	// چاپ سازنده MST
 	printMST(parent, V, graph);
 }
 
 
 int main()
 {
-	/* اجازه بدهید به ما نمودار زیر را ایجاد کنیم
+	/* 
 	2    3
 	(0)--(1)--(2)
 	|   / \   |
@@ -88,7 +74,6 @@ int main()
 	{ 0, 5, 7, 9, 0 },
 	};
 
-	// چاپ راه حل
 	primMST(graph);
 	cin.get();
 	return 0;
