@@ -1,12 +1,10 @@
-//پیاده سازی و اجرای کامل درخت تریپ
 #include <iostream>
 #include <cstdlib>
 using namespace std;
 
 typedef struct ctreenode *ctree;
-/*
-* Tree Node اعلان
-*/
+
+
 struct ctreenode
 {
 	int key, fix;
@@ -14,9 +12,8 @@ struct ctreenode
 };
 ctree nullnode, root;
 
-/*
-* Treap اعلان کلاس  
-*/
+
+
 class CTree
 {
 public:
@@ -31,9 +28,8 @@ public:
 	CTree()
 	{}
 };
-/*
-مقدار دهی اولیه گره
-*/
+
+
 void CTree::initialize()
 {
 	nullnode = new ctreenode;
@@ -41,9 +37,8 @@ void CTree::initialize()
 	root = nullnode;
 }
 
-/*
-پیاده سازی متد چرخش چپ
-*/
+
+
 void CTree::rl(ctree& k1)
 {
 	ctree k2;
@@ -53,9 +48,8 @@ void CTree::rl(ctree& k1)
 	k1 = k2;
 }
 
-/*
-پیاده سازی متد چرخش راست
-*/
+
+
 void CTree::rr(ctree& k1)
 {
 	ctree k2;
@@ -64,9 +58,8 @@ void CTree::rr(ctree& k1)
 	k2->right = k1;
 	k1 = k2;
 }
-/*
-پیاده سازی متد درج در درخت تریپ
-*/
+
+
 void CTree::insert(ctree& t, int x)
 {
 	if (t == nullnode)
@@ -100,9 +93,8 @@ void CTree::insert(ctree& t, int x)
 	}
 }
 
-/*
-پیاده سازی متد حذف از درخت تریپ
-*/
+
+
 void CTree::remove(ctree& t, int x)
 {
 	if (t == nullnode)
@@ -145,9 +137,8 @@ void CTree::remove(ctree& t, int x)
 		}
 	}
 }
-/*
-پیاده سازی متد جست جو در درخت تریپ
-*/
+
+
 bool CTree::find(ctree t, int x)
 {
 	if (t == nullnode)
@@ -162,9 +153,8 @@ bool CTree::find(ctree t, int x)
 			return find(t->right, x);
 	}
 }
-/*
-پیاده سازی متد نمایش عناصر درخت تریپ
-*/
+
+
 void CTree::display(ctree ptr, int level)
 {
 	int i;
@@ -185,9 +175,8 @@ void CTree::display(ctree ptr, int level)
 		display(ptr->left, level + 1);
 	}
 }
-/*
-پیاده سازی پیمایش میان ترتیب
-*/
+
+
 void CTree::inorder(ctree ptr)
 {
 	if (ptr == nullnode)
@@ -239,12 +228,12 @@ int main()
 				cout << "Onsor peyda nashod" << endl;
 			ct.remove(root, num);
 			if (!ct.find(root, num) && flag)
-				cout << "Onsor hazf shod" << endl;
+				cout << "The element deleted" << endl;
 			break;
 		case 3:
 			if (root == nullnode)
 			{
-				cout << "Derakht khali ast, Avalin onsor ra vared konid" << endl;
+				cout << "The tree is empty, enter the first element" << endl;
 				continue;
 			}
 			cout << "Inorder Traversal:" << endl;
@@ -254,10 +243,10 @@ int main()
 		case 4:
 			if (root == nullnode)
 			{
-				cout << "Derakht khali ast" << endl;
+				cout << "The tree is empty" << endl;
 				continue;
 			}
-			cout << "Namayesh Treap:" << endl;
+			cout << "Display Treap:" << endl;
 			ct.display(root, 1);
 			cout << endl;
 			break;
@@ -265,7 +254,7 @@ int main()
 			exit(1);
 			break;
 		default:
-			cout << "Gozine eshtebah ast" << endl;
+			cout << "Wrong choice" << endl;
 		}
 	}
 } 
