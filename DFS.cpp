@@ -37,7 +37,6 @@ void Graph::DFSUtil(int v, bool visited[])
 		DFSUtil(*i, visited);
 }
 
-// تابع برای انجام پیمایش اول عمق که از آن در DFSUtil() بصورت بازگشتی استفاده میشود
 void Graph::DFS()
 {
 	// علامت گذاری همه به رئوس به عنوان بازدید نکرده
