@@ -8,7 +8,7 @@ class Graph
 	list<int> *adj;    // 
 	void DFSUtil(int v, bool visited[]);  // 
 public:
-	Graph(int V);   // سازنده
+	Graph(int V);   // 
 	void addEdge(int v, int w);   // تابعی برای افزودن یال به گراف
 	void DFS();    // چاپ گراف پیمایش اول عمق شده ی کامل
 };
