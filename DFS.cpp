@@ -21,7 +21,7 @@ Graph::Graph(int V)
 
 void Graph::addEdge(int v, int w)
 {
-	adj[v].push_back(w); // افزودن راس w به گراف
+	adj[v].push_back(w); //
 }
 
 void Graph::DFSUtil(int v, bool visited[])
