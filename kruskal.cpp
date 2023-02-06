@@ -1,4 +1,3 @@
-//پیاده سازی و اجرای الگوریتم کروسکال(راشال)
 #include<iostream>
 #include<conio.h>
 using namespace std;
