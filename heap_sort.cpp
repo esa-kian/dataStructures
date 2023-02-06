@@ -1,4 +1,3 @@
-/پیاده سازی و اجرای مرتب سازی هرمی(heap sort)
 
 #include <iostream>
 #include <conio.h>
