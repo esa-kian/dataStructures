@@ -45,7 +45,7 @@ void Graph::DFS()
 		visited[i] = false;
 
 	// فراخوانی تابع کمکی بازگشتی برای چاپ پیمایش DFS
-	// شروع از از همه رئوس یکی یکی
+
 	for (int i = 0; i < V; i++)
 	if (visited[i] == false)
 		DFSUtil(i, visited);
